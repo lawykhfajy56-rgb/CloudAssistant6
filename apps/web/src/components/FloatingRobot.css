@@ -1,0 +1,59 @@
+.floating-robot {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#0b74de 0%,#06a3ff 100%);
+  box-shadow: 0 8px 24px rgba(11,116,222,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.floating-robot img{
+  width:48px;
+  height:48px;
+}
+
+.floating-robot:hover{
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(11,116,222,0.36);
+}
+
+.robot-panel{
+  position: fixed;
+  right: 100px;
+  bottom: 24px;
+  width: 360px;
+  max-width: calc(100% - 140px);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.12);
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.robot-panel-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 12px;
+  border-bottom:1px solid #f0f0f0;
+  background:#fafafa;
+}
+
+.robot-panel-body{
+  padding:12px;
+}
+
+.close-btn{
+  background:transparent;
+  border:none;
+  font-size:20px;
+  cursor:pointer;
+}
