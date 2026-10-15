@@ -54,7 +54,10 @@
 
         <div class="robot-panel-body">
           <div id="translator">
-            <button id="translateBtn" class="primary">ترجمة الشاشة فوراً</button>
+            <div style="display:flex; gap:8px; align-items:center; margin-bottom:10px">
+              <button id="translateBtn" class="primary">ترجمة الشاشة فوراً</button>
+              <label style="font-size:13px; display:flex; align-items:center; gap:6px"><input id="ttsToggle" type="checkbox" checked/> قراءة صوتية</label>
+            </div>
             <div id="status" class="status"></div>
             <div id="result" class="result"></div>
           </div>

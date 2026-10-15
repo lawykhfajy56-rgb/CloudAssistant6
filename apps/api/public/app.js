@@ -7,10 +7,28 @@ const closePanel = document.getElementById('closePanel');
 const translateBtn = document.getElementById('translateBtn');
 const statusEl = document.getElementById('status');
 const resultEl = document.getElementById('result');
+const ttsToggle = document.getElementById('ttsToggle');
 
 function setStatus(msg, isError = false) {
   statusEl.textContent = msg;
   statusEl.style.color = isError ? '#c0392b' : '#0b74de';
+}
+
+function speakText(text, lang = 'ar') {
+  try {
+    if (!ttsToggle || !ttsToggle.checked) return;
+    if (!window.speechSynthesis) return;
+    const utter = new SpeechSynthesisUtterance(text);
+    // Map simple codes to more specific locales
+    const langMap = { ar: 'ar-SA', en: 'en-US' };
+    utter.lang = langMap[lang] || lang;
+    utter.rate = 1.0;
+    utter.pitch = 1.0;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  } catch (e) {
+    console.warn('TTS failed', e);
+  }
 }
 
 robotBtn.addEventListener('click', () => {
@@ -61,8 +79,12 @@ translateBtn.addEventListener('click', async () => {
     }
 
     const data = await resp.json();
-    resultEl.textContent = data.translated || JSON.stringify(data);
+    const translated = data.translated || JSON.stringify(data);
+    resultEl.textContent = translated;
     setStatus('تمت الترجمة.');
+
+    // Play TTS if enabled
+    speakText(translated, 'ar');
   } catch (e) {
     console.error(e);
     setStatus('حدث خطأ أثناء المعالجة: ' + (e.message || e), true);
