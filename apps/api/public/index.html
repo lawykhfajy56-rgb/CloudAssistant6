@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>الخفاجي AI — CloudAssistant6</title>
     <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='18' fill='%230b74de'/><circle cx='60' cy='35' r='20' fill='%23ffffff'/><rect x='38' y='64' width='44' height='26' rx='6' fill='%23ffffff'/><circle cx='50' cy='34' r='3' fill='%230b74de'/><circle cx='70' cy='34' r='3' fill='%230b74de'/></svg>" />
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0b74de">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="/icons/robot-192.svg">
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
@@ -68,6 +73,18 @@
     <!-- CDN libs -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.5/dist/tesseract.min.js"></script>
+    <script>
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(reg) {
+            console.log('ServiceWorker registration successful with scope: ', reg.scope);
+          }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
     <script src="/app.js"></script>
   </body>
 </html>
