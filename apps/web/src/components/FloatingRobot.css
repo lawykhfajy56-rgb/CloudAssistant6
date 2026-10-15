@@ -1,3 +1,5 @@
+/* apps/web/src/components/FloatingRobot.css (robotic theme)
+   Keep in sync with public styles to ensure consistent look */
 .floating-robot {
   position: fixed;
   right: 24px;
@@ -6,7 +8,7 @@
   height: 64px;
   border-radius: 50%;
   background: linear-gradient(135deg,#0b74de 0%,#06a3ff 100%);
-  box-shadow: 0 8px 24px rgba(11,116,222,0.28);
+  box-shadow: 0 10px 30px rgba(11,116,222,0.28);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +24,7 @@
 
 .floating-robot:hover{
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 32px rgba(11,116,222,0.36);
+  box-shadow: 0 14px 44px rgba(11,116,222,0.36);
 }
 
 .robot-panel{
@@ -33,9 +35,10 @@
   max-width: calc(100% - 140px);
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 12px 40px rgba(2,6,23,0.12);
+  box-shadow: 0 16px 44px rgba(2,6,23,0.12);
   z-index: 9999;
   overflow: hidden;
+  border: 1px solid rgba(11,116,222,0.06);
 }
 
 .robot-panel-header{
@@ -44,7 +47,8 @@
   justify-content:space-between;
   padding:8px 12px;
   border-bottom:1px solid #f0f0f0;
-  background:#fafafa;
+  background: linear-gradient(90deg,#0b74de,#2bb6ff);
+  color: #fff;
 }
 
 .robot-panel-body{
@@ -56,4 +60,5 @@
   border:none;
   font-size:20px;
   cursor:pointer;
+  color: #fff;
 }

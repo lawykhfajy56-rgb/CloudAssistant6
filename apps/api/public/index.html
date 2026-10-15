@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>الخفاجي AI — CloudAssistant6</title>
-    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='18' fill='%230b74de'/><circle cx='60' cy='35' r='20' fill='%23fff'/></svg>">
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='18' fill='%230b74de'/><circle cx='60' cy='35' r='20' fill='%23ffffff'/><rect x='38' y='64' width='44' height='26' rx='6' fill='%23ffffff'/><circle cx='50' cy='34' r='3' fill='%230b74de'/><circle cx='70' cy='34' r='3' fill='%230b74de'/></svg>" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <div id="app">
       <header class="site-header">
         <h1>الخفاجي AI</h1>
-        <p>مساعد السحابة (محدث)</p>
+        <p>مساعدك الروبوتي لترجمة الشاشة فوراً</p>
       </header>
 
       <main class="site-main">
@@ -43,7 +43,12 @@
 
       <div id="robotPanel" class="robot-panel hidden" role="dialog" aria-label="الخفاجي AI Panel">
         <div class="robot-panel-header">
-          <strong>الخفاجي AI</strong>
+          <div style="display:flex; align-items:center">
+            <div class="robot-face" aria-hidden>
+              <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="1.8" fill="#0b74de"/><circle cx="16" cy="8" r="1.8" fill="#0b74de"/></svg>
+            </div>
+            <strong>الخفاجي AI</strong>
+          </div>
           <button id="closePanel" class="close-btn" aria-label="close">×</button>
         </div>
 
