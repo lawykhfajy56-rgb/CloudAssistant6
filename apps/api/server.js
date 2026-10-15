@@ -3,14 +3,19 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
-app.use(express.json({ limit: '5mb' }));
+app.use(express.json({ limit: '8mb' }));
 
-app.get('/', (req, res) => res.json({ ok: true, service: 'CloudAssistant6 - Translation API' }));
+// Serve static frontend files from ./public
+const publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+
+app.get('/health', (req, res) => res.json({ ok: true, service: 'CloudAssistant6 - Translation API' }));
 
 app.post('/api/translate', async (req, res) => {
   try {
@@ -37,6 +42,13 @@ app.post('/api/translate', async (req, res) => {
   }
 });
 
+// SPA fallback: serve index.html for unknown routes
+app.get('*', (req, res) => {
+  // If request starts with /api, return 404
+  if (req.path.startsWith('/api')) return res.status(404).json({ error: 'Not found' });
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 app.listen(PORT, () => {
-  console.log(`Translation proxy running on port ${PORT}`);
+  console.log(`Translation proxy and web UI running on port ${PORT}`);
 });
