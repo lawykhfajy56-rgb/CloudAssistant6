@@ -1,96 +1,30 @@
-# CloudAssistant6
+# CloudAssistant6 (updated branding: الخفاجي AI)
 
-CloudAssistant6 is a starter project for a cloud operations and automation assistant. The repository currently provides a clean project foundation and a high-level description of the system's intended capabilities.
+هذا المستودع (CloudAssistant6) تم تحديثه ليتضمن هوية جديدة وميزة ترجمة الشاشة الفورية كجزء من التطبيق الحالي — دون إنشاء تطبيق منفصل. الاسم والوظيفة الأساسية لا تزالا جزءًا من نفس المستودع، لكننا أضفنا طبقة "روبوت" لواجهة المستخدم والوظائف.
 
-At this stage, the project is intended to help teams do the following:
+ملاحظة مهمة: اسم التطبيق الخارجي والهوية (branding) الجديدة: "الخفاجي AI" — روبوت مساعد تشغيلي.
 
-- Manage cloud resources across multiple providers
-- Monitor usage, costs, and service health
-- Automate routine infrastructure tasks
-- Provide a conversational assistant for operators and developers
-- Support deployment, troubleshooting, and operational analysis
+ما تم إضافته في هذا التحديث
 
-## What this application does
+1) ميزة: ترجمة الشاشة الفورية (Screen Translator)
+- ملف بنية الخدمة/مكتبة أمامية جاهزة لاستخدام OCR (قراءة النص من لقطات الشاشة) ثم إرسال النص لمزود ترجمة.
+- مكوّن React جاهز كمسودة يمكن دمجه في الواجهة الحالية.
+- وثائق مُبسطة لشرح كيفية تشغيل المكوّن وخيارات المزودين (Google Translate, DeepL، أو خدمات محلية).
 
-The application is designed to act as a cloud assistant that can help users:
+2) تغييرات الهوية (branding)
+- أيقونة روبوت جديدة في assets/ باسم "الخفاجي AI" (SVG) لاستخدامها كأيقونة تطبيق خارجية.
+- README مُحدّث يوضح أن المشروع الآن "الخفاجي AI" ويشرح أنه تحديث ضمن نفس المستودع.
 
-- View and manage compute, storage, networking, and application resources
-- Understand the current state of infrastructure
-- Generate recommendations for cost optimization and reliability
-- Simplify common cloud operations through automation
-- Assist with incident response and troubleshooting workflows
+3) ملفات توثيق إضافية
+- docs/CHANGE_LOG.md يصف التعديلات الأخيرة.
+- services/translation/README.md يشرح التصميم، نقاط التكامل، ومتطلبات البيئة.
 
-## Core capabilities
+ملاحظات تشغيلية
+- هذه الإضافات هي نقاط بداية (scaffolding) — تتطلب إضافة مفاتيح API لمزود الترجمة، وبيئة تشغيل front-end مع دعم html2canvas وTesseract.js.
+- لم أبدّل اسم المستودع على GitHub — بقي CloudAssistant6 كما طلبت، لكن المشروع يحمل هوية داخلية "الخفاجي AI".
 
-### 1. Cloud resource overview
-Track cloud resources, account status, and environment health.
+إذا أردت، أستطيع الآن:
+- ربط مكوّن الترجمة بواجهة موجودة (إن وفّرت لي مسار الواجهة الحالية في المستودع). 
+- إعداد مثال عمل محلي (project scaffold with package.json, install scripts). 
+- توصيله بخدمة ترجمة فعلية (أحتاج مفتاح API خاص بك).
 
-### 2. Cost and usage awareness
-Monitor consumption and surface cost-related insights.
-
-### 3. Automation workflows
-Support task execution for provisioning, updates, and cleanup actions.
-
-### 4. Assistant experience
-Provide a friendly interface for users to ask operational questions and receive actionable guidance.
-
-### 5. Extensibility
-Built to integrate with providers such as Azure, AWS, GCP, or internal tooling.
-
-## Suggested project structure
-
-This repository is intentionally prepared as a starting point for a larger application. A typical final structure may look like this:
-
-```text
-CloudAssistant6/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── apps/
-│   ├── web/
-│   └── api/
-├── services/
-│   ├── cloud/
-│   ├── monitoring/
-│   └── assistant/
-├── infra/
-│   ├── terraform/
-│   └── docker/
-├── docs/
-└── tests/
-```
-
-## Getting started
-
-This repository does not yet contain the application implementation. To begin development, the next steps are usually:
-
-1. Define the target cloud providers and APIs to integrate
-2. Choose the frontend/backend stack
-3. Design the assistant workflow and data model
-4. Add authentication, authorization, and environment configuration
-5. Build the first deployment and monitoring features
-
-Example environment variables:
-
-```bash
-CLOUD_PROVIDER=azure
-APP_ENV=development
-API_PORT=8080
-SECRET_KEY=your-secret-key
-```
-
-## Recommended next steps
-
-- Add project architecture documentation
-- Add API and UI scaffolding
-- Define core modules for cloud operations and assistant logic
-- Add CI/CD automation
-- Add security and logging best practices
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Note
-
-This repository is currently a starter scaffold and does not yet contain production application logic. The README describes the intended purpose and the capabilities the project is being designed to provide.
